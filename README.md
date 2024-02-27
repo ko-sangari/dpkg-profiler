@@ -2,6 +2,8 @@
 [![forthebadge made-with-python](https://forthebadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
 [![Python 3.12](https://img.shields.io/badge/python-3.12-blue.svg)](https://www.python.org/downloads/release/python-390/) [![Docker](https://badgen.net/badge/icon/docker?icon=docker&label)](https://https://docker.com/) [![Open Source? Yes!](https://badgen.net/badge/Open%20Source%20%3F/Yes%21/blue?icon=github)](https://github.com/Naereen/badges/)
 
+![Screenshot from 2024-02-27 12-31-01](https://github.com/ko-sangari/dpkg-profiler/assets/38611172/6c89f5e7-3531-4b3e-af6d-8c08f7fff193)
+
 
 ## ⭕ Contents
 - [The project's purpose](#-the-project's-purpose)

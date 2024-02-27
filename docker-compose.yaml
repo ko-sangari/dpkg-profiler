@@ -1,0 +1,20 @@
+version: "3.9"
+
+services:
+  backend:
+    container_name: dpkg_profiler_fastapi
+    build: backend/
+    ports:
+      - 8000:8000
+    environment:
+      - DOCKER_ENV=1
+
+  frontend:
+    container_name: dpkg_profiler_streamlit
+    build: frontend/
+    ports:
+      - 8501:8501
+    depends_on:
+      - backend
+    environment:
+      - DOCKER_ENV=1

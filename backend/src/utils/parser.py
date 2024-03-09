@@ -21,11 +21,17 @@ def parse_package_info(package_info: str) -> dict:
     current_key = None
     current_value = []
 
+    package_info = package_info + "\n"
+
     for line in package_info.split("\n"):
+        if line == " .":
+            continue
+
         if ":" in line and not line.startswith(" "):
             # If there is an ongoing key, save it before starting a new one
             if current_key is not None:
                 package_data[current_key] = "\n".join(current_value).strip()
+
             try:
                 key, value = line.split(":", 1)
                 value = value.strip()

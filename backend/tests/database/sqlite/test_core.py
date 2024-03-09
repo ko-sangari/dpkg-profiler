@@ -5,7 +5,7 @@ from sqlalchemy import select
 from src.models.package_models import Package
 
 
-@pytest.mark.asyncio(scope="session")
+@pytest.mark.asyncio
 async def test_package_create(sqlite, package_item):
     async with sqlite.session_factory() as session:
         session.add(package_item)
@@ -15,7 +15,7 @@ async def test_package_create(sqlite, package_item):
         assert len(query_all) == 1
 
 
-@pytest.mark.asyncio(scope="session")
+@pytest.mark.asyncio
 async def test_create_tables(sqlite):
     async with sqlite.session_factory() as session:
         async with session.bind.connect() as connection:
@@ -25,7 +25,7 @@ async def test_create_tables(sqlite):
             assert table_names == ["dependencies", "packages"]
 
 
-@pytest.mark.asyncio(scope="session")
+@pytest.mark.asyncio
 async def test_health_check(sqlite):
     result = await sqlite.health_check()
     assert result is True

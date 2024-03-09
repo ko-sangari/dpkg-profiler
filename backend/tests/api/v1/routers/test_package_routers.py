@@ -3,7 +3,7 @@ import pytest
 from fastapi import status
 
 
-@pytest.mark.asyncio(scope="session")
+@pytest.mark.asyncio
 async def test_response_structure(async_client_v1):
     response = await async_client_v1.get("/packages/")
     assert response.status_code == status.HTTP_200_OK
@@ -14,14 +14,14 @@ async def test_response_structure(async_client_v1):
     assert "pages" in response.json()
 
 
-@pytest.mark.asyncio(scope="session")
+@pytest.mark.asyncio
 async def test_get_all_packages(async_client_v1, created_package):
     response = await async_client_v1.get("/packages/")
     assert response.status_code == status.HTTP_200_OK
     assert len(response.json()["items"]) == 1
 
 
-@pytest.mark.asyncio(scope="session")
+@pytest.mark.asyncio
 async def test_get_package_by_id(async_client_v1, created_package):
     response = await async_client_v1.get(f"/packages/{created_package.id}")
     assert response.status_code == status.HTTP_200_OK
@@ -35,7 +35,7 @@ async def test_get_package_by_id(async_client_v1, created_package):
     assert api_response["detail"] == "Package not found!"
 
 
-@pytest.mark.asyncio(scope="session")
+@pytest.mark.asyncio
 async def test_get_package_by_name(async_client_v1, created_package):
     response = await async_client_v1.get(f"/packages/{created_package.name}")
     assert response.status_code == status.HTTP_200_OK
